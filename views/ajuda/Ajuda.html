@@ -1,0 +1,14 @@
+{% extends "ajuda/Ajuda_index.html" %}
+{% block main %}
+
+  <div class="ajuda-page">
+    <h2> Necessita de ajuda para algo mais? Aconteceu algo?</h2>
+    <a href="/ajuda/conserto" class="btn btn-primary mb-2">Sensor precisa de conserto</a><br>
+    <a href="/ajuda/listar_consertos" class="btn btn-primary mb-2">Ver os concertos</a><br>
+    <a href="/ajuda/reclamacao" class="btn btn-primary mb-2">Reclamação</a><br>
+    <a href="/ajuda/listar_reclamacoes" class="btn btn-primary mb-2">Ver as Reclamações</a><br>
+    <a href="/ajuda/listar_solucao" class="btn btn-primary mb-2">Ver todas as chamadas solucionadas</a><br>
+  </div>
+  
+{% block content %} {% endblock content%}
+{% endblock main%}

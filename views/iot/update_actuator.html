@@ -1,0 +1,47 @@
+<!-- home.html -->
+{% extends "iot/iot_index.html" %}
+{% import 'utils/forms.html' as forms %}
+{% block main %}
+<main>
+    <div class="vertical-center">
+        <div class="container view">
+            <div class="justify-content-center">
+                <div class="container-fluid px-4">
+                    <h3 class="mt-4">Atualizar Atuador</h3>
+                    <div class="container-fluid px-4">
+                        <div class="row">
+                            <div class="vertical-center">
+                                <div class="container">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            Atualizar Atuador
+                                        </div>
+                                        <div class="card-body">
+                                            <form class="row g-3 justify-content-center" enctype="multipart/form-data" action="/iot/save_actuator_changes" method="POST">
+                                                <input type="hidden"  id="id" name = "id" value="{{ actuator[0].id }}">
+                                                {{ forms.input(label = 'Nome', name = 'name', id = 'name', value=actuator[0].name, type='text', box_size = 6) }}
+                                                {{ forms.input(label = 'Modelo', name = 'model', id = 'model', value=actuator[0].model, type='text', box_size = 3) }}
+                                                {{ forms.input(label = 'Marca', name = 'brand', id = 'brand', value=actuator[0].brand, type='text', box_size = 3) }}
+                                                {{ forms.input(label = 'Tensão', name = 'voltage', id = 'voltage', value=actuator[0].voltage, type='text', box_size = 2) }}
+                                                {{ forms.input(label = 'Tipo do Atuador', name = 'actuator_type', id = 'actuator_type', value=actuator[1].actuator_type, type='text', box_size = 2) }}
+                                                {{ forms.textarea(label = 'Informações Adicionais', name = 'description', rows = 1, id = 'description', value=actuator[0].description, box_size = 8) }}
+                                                {% if actuator[0].is_active == true %}
+                                                    {{ forms.checkbox(label = 'Atuador ativo', name = "is_active", id = "is_active", checked='checked', box_size = 12) }}
+                                                {% else %}
+                                                    {{ forms.checkbox(label = 'Atuador ativo', name = "is_active", id = "is_active", checked='', box_size = 12) }}
+                                                {% endif %}
+                                                {{ forms.button(label = 'Atualizar Atuador', box_size = 12) }}
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+                                        

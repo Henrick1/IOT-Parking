@@ -1,0 +1,59 @@
+.topo {
+    background-color: black;
+    float: left;
+    width: 100%; height: 10% ;
+}
+
+.borda_esquerda {
+    background-color: rgb(58, 56, 56);
+    float: left;
+    width: 15%; height: 100%;
+}
+
+.area_questionario {
+    background-color: gray;
+    float: left;
+    width: 85%; height: 100%;
+
+}
+
+.questionario {
+    background-color: rgba(255, 255, 255, 0.87);
+    float: left;
+    margin-top: 15%;
+    margin-left: 5%;
+    width: 60%;height: 30%;
+}
+
+.formulario_sensor{
+    background-color: rgb(125, 125, 211);
+    width: 100%;height: 100%;
+    position: relative;
+    text-align: center;
+}
+.form-input{
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 50%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.form-button{
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #464343;
+    width: 50%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}

@@ -1,0 +1,18 @@
+body{
+    background-color: #c2c2c2;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+select{
+    width: 150px;
+}
+img{
+    stroke: 1px;
+}
+button{
+    border-radius: 15px;
+    stroke: none;
+    width: 150px;
+}

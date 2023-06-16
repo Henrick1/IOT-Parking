@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title> Estacionamento de John Doe</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/css/home.css" />
+        <meta charset="utf-16">
+    </head>
+
+<body>
+    <h2> Estacionamento </h2>
+    <h3> Veja o que deseja fazer </h3>
+    <ul>
+        <li><a href="/iot"> IOT</a></li>
+        <li><a href="/ajuda"> Ajuda</a></li>
+        <li><a href="/ajuda/reclamacao"> Reclamações</a></li>
+        <li><a href="/auth/cadastrar"> Faça seu Cadastro</a></li>
+        <li><a href="/auth"> Faça seu Login</a></li>
+        <li><a href="/auth/logout"> Logout </a></li>
+    </ul>
+    <div id="contentex">
+        {% block content %} {% endblock %}
+    </div>
+
+    <p> Voltar para <a href="/"> Página Incial</a></p>
+</body>
+
+</html>

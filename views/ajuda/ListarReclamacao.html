@@ -1,0 +1,50 @@
+{% extends "ajuda/Ajuda_index.html" %}
+{% block main %}
+<main>
+    <div class="container-fluid px-4">
+        <h2 class="mt-4">Listagem de Reclamações</h2>
+        <div class="vertical-center">
+            <div class="container view">
+                <div class="justify-content-center">
+                    <div class="card">
+                        <div class="card-body">
+                            {% with messages = get_flashed_messages(with_categories=true) %}
+                                {% if messages %}
+                                    {% for category, message in messages %}
+                                    <div class="alert alert-{{ category }} alert-dismissible">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                        {{ message }}
+                                    </div>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+                            <table id="view_reclamacoes" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>ID da Reclamação</th>
+                                        <th>ID do Usuário</th>
+                                        <th>Assunto</th>
+                                        <th>Descrição</th>
+                                        <th>Excluir</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for reclamacao in reclamcacao %}
+                                    <tr>
+                                        <td>{{ reclamacao.id }}</td>
+                                        <td>{{ reclamacao.id_user }}</td>
+                                        <td>{{ reclamacao.titulo}}</td>
+                                        <td>{{ reclamacao.descricao  }}</td>
+                                        <td><i class="fa fa-trash"></i><a href="/ajuda/delete_reclamacao/{{ reclamacao.id }}" onclick="return confirm('Tem certeza que deseja excluir essa reclamação?');"> Excluir</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

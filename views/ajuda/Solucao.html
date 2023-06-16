@@ -1,0 +1,52 @@
+{% extends "ajuda/Ajuda_index.html" %}
+{% block main %}
+<main>
+    <div class="container-fluid px-4">
+        <h2 class="mt-4">Listagem das Soluções</h2>
+        <div class="vertical-center">
+            <div class="container view">
+                <div class="justify-content-center">
+                    <div class="card">
+                        <div class="card-body">
+                            {% with messages = get_flashed_messages(with_categories=true) %}
+                                {% if messages %}
+                                    {% for category, message in messages %}
+                                    <div class="alert alert-{{ category }} alert-dismissible">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                        {{ message }}
+                                    </div>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+                            <table id="view_solucoes" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>ID da Solução</th>
+                                        <th>ID do Conserto</th>
+                                        <th>Número da vaga</th>
+                                        <th>Data da Solução</th>
+                                        <th>Descrição</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for solucao in solucao %}
+                                    <tr>
+                                        <td>{{ solucao.id }}</td>
+                                        <td>{{ solucao.id_conserto }}</td>
+                                        <td>{{ solucao.numero_vaga }}</td>
+                                        <td>{{ solucao.data_hora  }}</td>
+                                        <td>{{ solucao.descricao  }}</td>
+                                        <td>{{ solucao.status  }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

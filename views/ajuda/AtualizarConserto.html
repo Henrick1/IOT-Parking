@@ -1,0 +1,44 @@
+{% extends "ajuda/Ajuda_index.html" %}
+{% import 'utils/forms.html' as forms %}
+{% block main %}
+<main>
+    <div class="vertical-center">
+        <div class="container view">
+            <div class="justify-content-center">
+                <div class="container-fluid px-4">
+                    <h3 class="mt-4">Atualizar Conserto</h3>
+                    <div class="container-fluid px-4">
+                        <div class="row">
+                            <div class="vertical-center">
+                                <div class="container">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            Atualizar Conserto
+                                        </div>
+                                        <div class="card-body">
+                                            <form class="row g-3 justify-content-center" enctype="multipart/form-data" action="/ajuda/save_conserto_changes" method="POST">
+                                                <input type="hidden"  id="id" name = "id" value="{{ conserto.id }}" required>
+                                                <div class="col-md-6">
+                                                    <label for="numero_vaga" class="form-label">Número da Vaga</label>
+                                                    <select id="numero_vaga" name="numero_vaga" class="form-control">
+                                                        {% for v in vaga %}
+                                                            <option value="{{ v.id }}">{{ v.id }}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                                {{ forms.textarea(label = 'Descrição', name = 'descricao', rows=1, id = 'descricao', value=conserto.descricao, box_size = 8) }}
+                                                {{ forms.button(label = 'Atualizar Conserto', box_size = 12) }}
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+                                        

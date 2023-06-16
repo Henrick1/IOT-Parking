@@ -1,0 +1,62 @@
+{% extends "ajuda/Ajuda_index.html" %}
+{% block main %}
+<main>
+    <div class="container-fluid px-4">
+        <h2 class="mt-4">Listagem de Consertos</h2>
+        <div class="vertical-center">
+            <div class="container view">
+                <div class="justify-content-center">
+                    <div class="card">
+                        <div class="card-body">
+                            {% with messages = get_flashed_messages(with_categories=true) %}
+                                {% if messages %}
+                                    {% for category, message in messages %}
+                                    <div class="alert alert-{{ category }} alert-dismissible">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                        {{ message }}
+                                    </div>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+                            <table id="view_conserto" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>ID da Chamada</th>
+                                        <th>Número da Vaga</th>
+                                        <th>Descrição</th>
+                                        <th>Status</th>
+                                        <th>Atualizar</th>
+                                        <th>Solucionar</th>
+                                        <th>Excluir</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for conserto in conserto %}
+                                    <tr>
+                                        <td>{{ conserto.id }}</td>
+                                        <td>{{ conserto.numero_vaga}}</td>
+                                        <td>{{ conserto.descricao  }}</td>
+                                        <td>{{ conserto.status  }}</td>
+                                        <td><i class="fa fa-refresh"></i><a href="/ajuda/update_conserto/{{ conserto.id }}"> Editar</a></td>
+                                        {% if conserto.status != "Solucionado" %}
+                                        <td><i class="fa fa-cog"></i><a href="/ajuda/save_solucao/{{ conserto.id }}" onclick="return confirm('Tem certeza que deseja deixar o status dessa chamada como solucionada?');"> Solucionado</a></td>
+                                        {% else %}
+                                        <td><i class="fa fa-cog"></i> Solucionado!</a></td>
+                                        {% endif %}
+                                        {% if conserto.status != "Solucionado" %}
+                                        <td><i class="fa fa-trash"></i><a href="/ajuda/delete_conserto/{{ conserto.id }}" onclick="return confirm('Tem certeza que deseja excluir esse chamada?');"> Excluir</a></td>
+                                        {% else %}
+                                        <td><i class="fa"></i> Solucionado</a></td>
+                                        {% endif %}
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

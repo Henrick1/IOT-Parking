@@ -1,0 +1,49 @@
+{% extends "iot/iot_index.html" %}
+{% import 'utils/forms.html' as forms %}
+
+{% block main %}
+<main class="main">
+    
+    <div class="container-fluid px-4">
+    <h3 class="mt-4">Cadastro de Sensor</h3>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="form">
+                {{ messages[0] }} </a>
+            </div>
+        {% endif %}
+    {% endwith %}
+    <div class="vertical-center">
+        <div class="container view">
+            <div class="justify-content-center">
+                <div class="container-fluid px-4">
+                    <div class="row">
+                        <div class="vertical-center">
+                            <div class="container">
+                                <div class="card">
+                                    <div class="card-header">
+                                    Cadastrar Novo Sensor
+                                    </div>
+                                    <div class="card-body">
+                                        <form class="row g-3 justify-content-center" enctype="multipart/form-data" action="/iot/save_sensors" method="POST">
+                                            {{ forms.input(label = 'Nome', name = 'name', id = 'name', type='text', box_size = 6) }}
+                                            {{ forms.input(label = 'Modelo', name = 'model', id = 'model', type='text', box_size = 3) }}
+                                            {{ forms.input(label = 'Marca', name = 'brand', id = 'brand', type='text', box_size = 3) }}
+                                            {{ forms.input(label = 'Tensão', name = 'voltage', id = 'voltage', type='text', box_size = 2) }}
+                                            {{ forms.input(label = 'Unidade de Medida', name = 'measure', id = 'measure', type='text', box_size = 2) }}
+                                            {{ forms.textarea(label = 'Informações Adicionais', name = 'description', rows = 1, id = 'description', box_size = 8) }}
+                                            {{ forms.checkbox(label = 'Sensor ativo', name = "is_active", id = "is_active", checked='', box_size = 12) }}
+                                            {{ forms.button(label = 'Cadastrar Sensor', box_size = 12) }}
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+                                        
